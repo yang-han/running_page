@@ -83,6 +83,7 @@ English | [简体中文](https://github.com/yihong0618/running_page/blob/master/
 - **[TCX](#TCX)**
 - **[Nike_to_Strava(Using NRC Run, Strava backup data)](#Nike_to_Strava)**
 - **[Tcx_to_Strava(upload all tcx data to strava)](#TCX_to_Strava)**
+- **[Gpx_to_Strava(upload all gpx data to strava)](#Gpx_to_Strava)**
 - **[Garmin+Strava(Using Garmin Run, Strava backup data)](#garminstrava)**
 
 ## Download
@@ -371,7 +372,8 @@ References：
 <br>
 
 1. follow the strava steps
-2. Execute in the root directory:
+2. copy all your tcx files to TCX_OUT
+3. Execute in the root directory:
 
 ```python
 python3(python) scripts/tcx_to_strava_sync.py ${client_id} ${client_secret}  ${strava_refresch_token}
@@ -381,9 +383,42 @@ example：
 
 ```python
 python3(python) scripts/tcx_to_strava_sync.py xxx xxx xxx
+or
+python3(python) scripts/tcx_to_strava_sync.py xxx xxx xxx --all
 ```
 
+4. if you want to all files add args `--all`
+
 </details>
+
+### GPX_to_Strava
+
+<details>
+<summary>upload all gpx files to strava</summary>
+
+<br>
+
+1. follow the strava steps
+2. copy all your gpx files to GPX_OUT
+3. Execute in the root directory:
+
+```python
+python3(python) scripts/gpx_to_strava_sync.py ${client_id} ${client_secret}  ${strava_refresch_token}
+```
+
+example：
+
+```python
+python3(python) scripts/gpx_to_strava_sync.py xxx xxx xxx
+or
+python3(python) scripts/tcx_to_strava_sync.py xxx xxx xxx --all
+```
+
+4. if you want to all files add args `--all`
+
+</details>
+
+
 
 ### Nike_to_Strava
 
@@ -576,3 +611,13 @@ Before submitting PR:
 # Support
 
 Just enjoy it~
+
+ # FAQ
+### Strava Api limit
+https://www.strava.com/settings/api
+https://developers.strava.com/docs/#rate-limiting
+
+```
+Strava API Rate Limit Exceeded. Retry after 100 seconds
+Strava API Rate Limit Timeout. Retry in 799.491622 seconds
+```
